@@ -16,6 +16,7 @@ function _init()
  x =  3
  }
  box = 17
+ 
 end
 
 
@@ -25,7 +26,9 @@ end
 
 
 function _update()
-	frame = (frame + 1)%60
+
+
+asaad = {16,17,18,19,20}
 	if(btnp(0)) then
 		game.c = (game.c-1)%8
 	end
@@ -33,19 +36,9 @@ function _update()
 	if(btnp(1)) then
 	game.c = (game.c+1)%8
 	end
-end
-
-function _draw()
-
-	
-	cls(0)
 	
 	
-	
-	asaad = {15,16,17,18,19,20}
-	--box = asaad[1]
-	
-	if(btnp(0)) then
+		if(btnp(0)) then
 	 box = box -1
 	end
 	
@@ -59,12 +52,20 @@ function _draw()
 		if(box>asaad[#asaad]) then
 	 box = asaad[#asaad]
 	end
-	
-	
+	side = 1
+end
+
+function _draw()
+	cls(0)
+
 	--box prints
-	for n=0,5 do
-		line(0,(box*n+n+5),box*5+5,(box*n+n+5),1)
-		line((box*n+n),5,(box*n+n),box*5+10,1)
+	for n=0,3 do
+		
+		--rectfill((side+box)*n+side,(side+box)*n+side+4,(side+box)*n+box+side,10,2)
+		--rectfill((side+box)*n+side,(side+box)*n+side+5,(side+box)*n+box+side,(side+box)*n+box+side+4,1)
+		--rectfill((side+box)*n+1,(side+box)*n+4,10,2)
+		--line(0,(box*n+n+5+side*n),box*5+5,(box*n+n+5),1)
+		line((box*n+n),5,(box*n+n+side*n),box*5+10,1)
 	end
 	
 	--store
@@ -76,7 +77,7 @@ function _draw()
 	line(1,112,box*5+7,112,7)
 	
 	--map
-	line(box*5+7,box*5+12,126,box*5+12,7)
+	line(box*5+7,box*5+12,127,box*5+12,7)
 	
 	--skill printing
 	for y=0,6 do
@@ -93,7 +94,6 @@ function _draw()
 	---spr(1,40,40)
 	
 	
-	print(frame,1,1,8)
 	print(box)
 	
 	
@@ -114,7 +114,7 @@ function _draw()
 	
 	
 	
-	print("k:00/10",box*5+9,2,8)
+	print("k:00/10",box*5+14,2,8)
 	print("e:00/30",10)
 	print("d:0/10",1)	
 	
